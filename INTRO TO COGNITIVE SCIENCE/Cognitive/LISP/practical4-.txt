@@ -1,0 +1,42 @@
+
+
+			Result 3
+
+This version note that the second condition (> x 0) is always
+true if the first is false.  The 't' atom in the final condition
+of the cond statement is lisp atom that roughly corresponds to true.
+By convention 't' always evaluate to itself;  this cause the last
+action to be evaluated if all preceeding condition return nil.
+This construct is extremely useful, as it provides a way of
+giving the cond statement a default action that is evaluated if
+and only if all the preceeding condition fail.
+
+
+Lisp also provides a form of if--then--else conditions.
+Syntax:  (if test <then-action><else-action>)
+for this form test is first evaluated.  If it evaluates to
+non-nil, the <then-action> is evaluated and result is returned;
+otherwise <else-action> is evaluated and its value returned.
+
+The <else-action> is optional.  If omitted, then where test evaluates to nil,
+the if function returns nil.
+
+		example:  (if(< 5 0) '(five) '(zero))
+
+
+If you need to put more than one statement in the then or else clause of an
+if statement, you can use the "program" special form.  Progn executes each
+statement in its body, then returns the value of final one.
+
+example:  (defun sum(b) (if (> b 1) (progn(setq a(+ b 1)) (setq((+ a 2))) (setq b 4))))
+
+Tasks to do as assignments:
+1.  Define function using cond operator that take two inputs as argument and return
+greater among two number.
+
+(defun funct(a b) (cond ((< a b) '(b is greater)) ((< b a) '(a is greater))))
+
+2.  Define a function using if clause that take two inputs as arguments
+and return difference among them.
+
+(defun funct
